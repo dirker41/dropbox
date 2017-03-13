@@ -1,0 +1,55 @@
+1.3.1 (2012-5-16)
+---
+Fixed delay before starting Dropbox app for authentication (in ICS).
+
+1.3 (2012-3-26)
+---
+Add support for the /delta API.
+Add support for the "copy ref" API.
+
+1.2.3 (2012-1-11)
+---
+Fixed rare crash during authentication through a web browser (when Dropbox app is not installed)
+Added file metadata to DropboxFileInfo when downloading files (and getting
+thumbnails).
+ - Same structure as the data returned by the metadata call.
+ - Saves having to do 2 RPCs to get both the file and its revision.
+DropboxFileInfo.getFileSize() is guaranteed to be the file size on file
+downloads (and thumbnail requests).
+ - Previously, on chunked downloads (if accepting gzip encodings), would be zero.
+
+1.2.2 (2011-11-15)
+---
+Fixed example app
+Small tweak to DropboxParseException
+
+1.2.1 (2011-10-11)
+---
+Improved documentation
+Other minor fixes and improvements
+
+1.2 (2011-08-16)
+---
+Added README
+Added CHANGELOG
+Added authentication through the Dropbox app or web site on Android
+ - This means you don't need to (and should not) ask for user credentials
+Added new DBRoulette Android sample app
+Enormous refactoring
+ - Most classes changed
+ - Most function signatures changed
+ - Removed config files and moved all config to the Session object
+ - Should be much easier to use now
+ - File upload methods now take an InputStream instead of File for more flexibility
+ - Fixed bugs, including some platform specific issues on Android
+Updated and added more Javadoc
+Added finely-tuned connection reuse and pooling
+Removed dependency on the signpost libraries
+Added new v1 API calls and rev parameter to old calls
+ - Revisions, search, restore, media, share
+Removed non-v1 API calls
+Changed how the SDK is packaged
+ - Includes source code (for Javadoc)
+ - Includes JAR dependencies and their licenses
+ - Includes Dropbox SDK license, readme, and changelog
+
